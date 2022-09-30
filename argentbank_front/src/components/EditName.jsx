@@ -1,7 +1,6 @@
 import React from 'react';
 import PutName from '../service/updateUser'
 import "../styles/index.scss"
-import "../styles/main.scss"
 
 
 const submit = () => {

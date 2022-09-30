@@ -4,7 +4,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from "react-redux";
 import "../styles/index.scss"
-import "../styles/main.scss"
 
 library.add(faCircleUser);
 
@@ -15,8 +14,9 @@ const Header = () => {
   const signOut = () => {
     localStorage.clear()
   }
+
   return (
-      <nav className="main-nav">
+    <nav className="main-nav">
       <a className="main-nav-logo" href="/">
         <img
           className="main-nav-logo-image"

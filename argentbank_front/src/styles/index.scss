@@ -71,7 +71,7 @@ body {
 
 .main-nav-logo-image {
   max-width: 100%;
-  width: 200px;
+  width: 125px;
 }
 
 .hero {
@@ -132,6 +132,10 @@ body {
     color: white;
     border-radius: 2rem;
   }
+}
+
+.error {
+  color: red;
 }
 
 .bloc_btn {
@@ -326,6 +330,10 @@ body {
 
   .account-content-wrapper.cta {
     flex: 0;
+  }
+
+  .main-nav-logo-image {
+    width: 200px;
   }
 
   .transaction-button {

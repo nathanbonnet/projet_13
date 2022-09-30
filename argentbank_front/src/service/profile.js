@@ -1,4 +1,4 @@
-import { userData } from '../store/todoActions'
+import { userData } from '../store/actions'
 
 const Profile = () => {
     const token = JSON.parse(localStorage.getItem('token'));

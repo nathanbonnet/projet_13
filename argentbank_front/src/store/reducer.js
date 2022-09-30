@@ -2,9 +2,10 @@ import { loadState } from './localStorage';
 
 const persistedState = loadState();
 
-console.log(persistedState, "test")
-
-let initialState;
+let initialState = {
+    firstName: 'firstname',
+    lastName: 'lastname',
+};
 
 if (persistedState) {
     initialState = {
@@ -19,7 +20,6 @@ if (persistedState) {
 }
 
 export const reducer = (state = initialState, action) => {
-    console.log("reducer", action)
     if (action.type === "UPDATE_NAME") {
       return {
         ...state,
@@ -27,5 +27,10 @@ export const reducer = (state = initialState, action) => {
         lastName: state.lastName = action.lastName
       };
     }
+    if (action.type === "USER_ERROR") {
+        return {
+            ...state = action
+        };
+      }
     return state
 }

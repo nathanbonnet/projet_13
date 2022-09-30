@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import User from '../pages/User';
-import { userData } from '../store/todoActions'
+import { userData } from '../store/actions'
 
 const PutName = (lastName, firstName) => {
-    // const dispatch = useDispatch();
     const token = JSON.parse(localStorage.getItem('token'));
     fetch('http://localhost:3001/api/v1/user/profile', {
         method: 'PUT',

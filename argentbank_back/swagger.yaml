@@ -164,3 +164,230 @@ definitions:
         type: string
       lastName:
         type: string
+
+# swager pour la partie 2 (transacction)
+
+# swagger: "2.0"
+# info:
+#   description: "Bank Argent API documentation"
+#   version: "1.0.0"
+#   title: "ArgentBank"
+# host: "localhost:3001"
+# basePath: "/api/v1"
+# tags:
+# - name: "Transactions"
+# schemes:
+# - "http"
+# paths:
+#   /transactions:
+#     get:
+#       tags:
+#       - "Transactions"
+#       summary: "transaction to recover"
+#       produces:
+#       - "application/json"
+#       parameters: 
+#       - in: header
+#         type: "string"
+#         name: Authorization
+#         description: Attach Bearer JWT token
+#         required: true
+#       - in: "query"
+#         name: "date"
+#         description: "date de mois en cours"
+#         type: "string"
+#         format: "date-time"
+#         required: false
+#         default: "2022-05"
+#       responses:
+#         "200":
+#           description: "successful operation"
+#           schema:
+#             type: "array"
+#             items:
+#               $ref: "#/definitions/responseTransaction"
+#         "400":
+#           description: "Invalid date format"
+#         "403":
+#           description: "not authenticated"
+#   /transactions/{id}:
+#     get:
+#       tags:
+#       - "Transactions"
+#       summary: "Get an existing transaction"
+#       description: "Multiple status values can be provided with comma separated strings"
+#       operationId: "getTransactionId"
+#       produces:
+#       - "application/json"
+#       parameters:
+#       - in: header
+#         type: "string"
+#         name: Authorization
+#         description: Attach Bearer JWT token
+#         required: true
+#       - in: "path"
+#         name: "id"
+#         description: "transaction that needs to be modified"
+#         required: true
+#         type: "integer"
+#       responses:
+#         "200":
+#           description: "successful operation"
+#           schema:
+#             $ref: "#/definitions/responseTransactionId"
+#         "403":
+#           description: "not authenticated"
+#         "404":
+#           description: "Transaction not found"
+#     put:
+#       tags:
+#       - "Transactions"
+#       summary: "Update an existing transaction"
+#       description: ""
+#       operationId: "updateTransactionId"
+#       consumes:
+#       - "application/json"
+#       produces:
+#       - "application/json"
+#       parameters:
+#       - in: header
+#         type: "string"
+#         name: Authorization
+#         description: Attach Bearer JWT token
+#         required: true
+#       - name: "id"
+#         in: "path"
+#         description: "transaction id to delete"
+#         required: true
+#         type: "integer"
+#       - in: body
+#         name: body
+#         description: Update transaction attributes
+#         required: true
+#         schema:
+#           $ref: '#/definitions/putTransaction'
+#       responses:
+#         '200':
+#           description: "Transaction update successfully"
+#           schema:
+#             $ref: '#/definitions/responseTransactionId'
+#         "400":
+#           description: "Invalid parameters"
+#         "403":
+#           description: "not authenticated"
+#         "404":
+#           description: "transaction not found"
+#     post:
+#       tags:
+#       - "Transactions"
+#       summary: "Create note transaction"
+#       description: ""
+#       operationId: "CreateTransactionId"
+#       consumes:
+#       - "application/json"
+#       produces:
+#       - "application/json"
+#       parameters:
+#       - in: header
+#         type: "string"
+#         name: Authorization
+#         description: Attach Bearer JWT token
+#         required: true
+#       - name: "id"
+#         in: "path"
+#         description: "transaction id to delete"
+#         required: true
+#         type: "integer"
+#       - in: body
+#         name: body
+#         description: create transaction attributes
+#         required: true
+#         schema:
+#           $ref: '#/definitions/postTransaction'
+#       responses:
+#         '200':
+#           description: "Transaction update successfully"
+#           schema:
+#             $ref: '#/definitions/responseTransactionId'
+#         "400":
+#           description: "Invalid parameters"
+#         "403":
+#           description: "not authenticated"
+#         "404":
+#           description: "transaction not found"
+#     delete:
+#       tags:
+#       - "Transactions"
+#       summary: "Delete an existing transaction"
+#       description: ""
+#       operationId: "deleteTransactionId"
+#       produces:
+#       - "application/json"
+#       parameters:
+#       - in: header
+#         type: "string"
+#         name: Authorization
+#         description: Attach Bearer JWT token
+#         required: true
+#       - name: "id"
+#         in: "path"
+#         description: "transaction id to delete"
+#         required: true
+#         type: "integer"
+#         format: "int64"
+#       responses:
+#         '200':
+#           description: "Transaction deleted successfully" 
+#         "400":
+#           description: "Invalid ID supplied"
+#         "403":
+#           description: "not authenticated"
+#         "404":
+#           description: "Transaction not found"
+# securityDefinitions:
+#   Bearer:
+#     type: apiKey
+#     name: Authorization
+#     in: header
+# definitions:
+#   getTransactionId:
+#     properties:
+#       id:
+#         type: "integer"
+#         format: "int64"
+#   putTransaction:
+#     properties:
+#       justificatif:
+#         type: "string"
+#       note:
+#         type: "string"
+#   postTransaction:
+#     properties:
+#       note:
+#         type: "string"
+#   responseTransaction:
+#     properties:
+#       id:
+#         type: "integer"
+#         format: "int64"
+#       justificatif:
+#         type: "string"
+#       montant:
+#         type: "number"
+#       date:
+#         type: "string"
+#         format: "date-time"
+#   responseTransactionId:
+#     properties:
+#       justificatif:
+#         type: "string"
+#       montant:
+#         type: "number"
+#       date:
+#         type: "string"
+#         format: "date-time"
+#       note:
+#         type: "string"
+# externalDocs:
+#   description: "Find out more about Swagger"
+#   url: "http://swagger.io"
